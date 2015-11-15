@@ -148,8 +148,9 @@ public class Principal extends AppCompatActivity implements TextToSpeech.OnInitL
                     "select codPregunta from Pregunta where pregunta='" + pregunta + "'", null);
             ContentValues registro = new ContentValues();
             if (fila.moveToFirst()) {
-                String  codPregunta= fila.getString(0);
                 //Actualizar
+                String  codPregunta= fila.getString(0);
+
                 registro.put("respuesta", respuesta);
                 bd.update("Pregunta", registro,"codPregunta="+codPregunta, null);
                 bd.close();

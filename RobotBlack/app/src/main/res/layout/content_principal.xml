@@ -47,7 +47,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AUDIO"
+        android:text="R. VOZ"
         android:id="@+id/btnGrabarAudio"
         android:layout_below="@+id/txtPregunta"
         android:layout_alignEnd="@+id/txtPregunta" />
@@ -55,7 +55,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Resolver"
+        android:text="RESPONDEME!!!"
         android:id="@+id/btnResolver"
         android:layout_above="@+id/textView2"
         android:layout_alignParentStart="true" />
@@ -63,7 +63,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="REGISTRAR"
+        android:text="APRENDER"
         android:id="@+id/btnGuardar"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="51dp" />
@@ -71,7 +71,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancelar"
+        android:text="LIMPIAR"
         android:id="@+id/btnCancelar"
         android:layout_alignTop="@+id/btnGuardar"
         android:layout_centerHorizontal="true" />

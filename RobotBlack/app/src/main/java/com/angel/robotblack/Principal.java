@@ -93,7 +93,7 @@ public class Principal extends AppCompatActivity implements TextToSpeech.OnInitL
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.srt_Configuracion) {
             return true;
         }
 
@@ -149,13 +149,14 @@ public class Principal extends AppCompatActivity implements TextToSpeech.OnInitL
             ContentValues registro = new ContentValues();
             if (fila.moveToFirst()) {
                 //Actualizar
-                String  codPregunta= fila.getString(0);
+                Integer codPregunta = fila.getInt(0);
 
                 registro.put("respuesta", respuesta);
-                bd.update("Pregunta", registro,"codPregunta="+codPregunta, null);
+                bd.update("Pregunta", registro, "codPregunta=" + codPregunta.toString(), null);
                 bd.close();
                 _txtPregunta.setText("");
                 _txtRespuesta.setText("");
+                //mensajeSalida = codPregunta.toString();
                 mensajeSalida = "Se actualizó correctamente la pregunta: ";
             }
             else
@@ -184,13 +185,12 @@ public class Principal extends AppCompatActivity implements TextToSpeech.OnInitL
         Cursor fila = bd.rawQuery(
                 "select respuesta from Pregunta where pregunta='" + pregunta + "'", null);
         if (fila.moveToFirst()) {
+            textToSpeech.setLanguage(new Locale("spa", "ESP"));
+            speak(fila.getString(0));
             _txtRespuesta.setText(fila.getString(0));
         } else
             Toast.makeText(this, "No existe una respuesta con dicha pregunta", Toast.LENGTH_SHORT).show();
         bd.close();
-
-        textToSpeech.setLanguage(new Locale("spa", "ESP"));
-        speak(fila.getString(0));
     }
 
     public void Limpiar(){
